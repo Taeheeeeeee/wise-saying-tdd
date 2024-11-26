@@ -11,16 +11,6 @@ public class WiseSayingControllerTest {
     @Test
     @DisplayName("== 명언 앱 ==")
     void t1(){
-//        Scanner sc = TestUtil.getScanner("종료");
-//        ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
-//
-//        App app = new App(sc);
-//        app.run();
-//
-//        String output = outputStream.toString();
-//
-//        TestUtil.clearSetOutToByteArray(outputStream);
-
         String output = AppTest.run("종료");
 
         assertThat(output).contains("== 명언 앱 ==");
@@ -29,25 +19,24 @@ public class WiseSayingControllerTest {
     @Test
     @DisplayName("명령) ")
     void t2(){
-//        Scanner sc = TestUtil.getScanner("""
-//                목록
-//                종료
-//                """);
-//        ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
-//
-//        App app = new App(sc);
-//        app.run();
-//
-//        String output = outputStream.toString();
-//
-//        TestUtil.clearSetOutToByteArray(outputStream);
-//
-
         String output = AppTest.run("""
                 목록
                 종료
                 """);
 
         assertThat(output).contains("명령) ");
+    }
+    @Test
+    @DisplayName("명령이 두 번이상 입력될 수 있습니다. ")
+    void t3(){
+        String output = AppTest.run("""
+                목록
+                목록
+                종료
+                """);
+
+        String[] split = output.split("명령\\)");
+
+        assertThat(split).hasSize(4);
     }
 }

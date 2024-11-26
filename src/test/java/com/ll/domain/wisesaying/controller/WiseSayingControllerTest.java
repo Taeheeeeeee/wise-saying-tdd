@@ -8,35 +8,19 @@ import static org.assertj.core.api.Assertions.*;
 
 public class WiseSayingControllerTest {
 
-    @Test
-    @DisplayName("== 명언 앱 ==")
-    void t1(){
-        String output = AppTest.run("종료");
 
-        assertThat(output).contains("== 명언 앱 ==");
-    }
 
     @Test
-    @DisplayName("명령) ")
-    void t2(){
+    @DisplayName("등록을 입력하면 작가와 내용을 입력 받는다.")
+    void t4(){
         String output = AppTest.run("""
-                목록
-                종료
+                등록
+                현재를 사랑하라.
+                장자미상
                 """);
 
-        assertThat(output).contains("명령) ");
-    }
-    @Test
-    @DisplayName("명령이 두 번이상 입력될 수 있습니다. ")
-    void t3(){
-        String output = AppTest.run("""
-                목록
-                목록
-                종료
-                """);
-
-        String[] split = output.split("명령\\)");
-
-        assertThat(split).hasSize(4);
+        assertThat(output)
+                .contains("명언: ")
+                .contains("작가: ");
     }
 }

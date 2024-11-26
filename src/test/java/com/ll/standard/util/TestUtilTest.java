@@ -29,6 +29,7 @@ public class TestUtilTest {
     }
 
     @Test
+    @DisplayName("TestUtil.setOutToByteArray()")
     public void t2() {
         ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
 

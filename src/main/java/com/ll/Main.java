@@ -8,8 +8,8 @@ public class Main {
 
 //        lab1(); // 사람이 직접 입력
 //        lab2(); // 자동으로 입력
-//        lab3();
-        lab4();
+//        lab3(); // 바로 출력
+        lab4(); // 모아서 출력
     }
 
     private static void lab1() {

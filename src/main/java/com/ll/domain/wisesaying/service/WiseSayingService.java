@@ -1,6 +1,8 @@
 package com.ll.domain.wisesaying.service;
 
 import com.ll.domain.wisesaying.entity.WiseSaying;
+import com.ll.domain.wisesaying.repository.WiseSayingFileRepository;
+import com.ll.domain.wisesaying.repository.WiseSayingMemoryRepository;
 import com.ll.domain.wisesaying.repository.WiseSayingRepository;
 
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ public class WiseSayingService {
     private final WiseSayingRepository wiseSayingRepository;
 
     public WiseSayingService() {
-        this.wiseSayingRepository = new WiseSayingRepository();
+        this.wiseSayingRepository = new WiseSayingFileRepository();
     }
 
     public WiseSaying add(String content, String author) {

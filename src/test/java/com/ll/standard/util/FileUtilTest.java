@@ -10,12 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileUtilTest {
     @BeforeAll
     public static void beforeAll() {
-        FileUtil.file.mkdir("temp");
+        Util.file.mkdir("temp");
     }
 
     @AfterAll
     public static void afterAll() {
-        FileUtil.file.rmdir("temp");
+        Util.file.rmdir("temp");
     }
 
     @Test
@@ -23,13 +23,13 @@ public class FileUtilTest {
     public void t1() {
         String filePath = "temp/test.txt";
 
-        FileUtil.file.touch(filePath);
+        Util.file.touch(filePath);
 
         assertThat(
-                FileUtil.file.exists(filePath)
+                Util.file.exists(filePath)
         ).isTrue();
 
-        FileUtil.file.delete(filePath);
+        Util.file.delete(filePath);
     }
 
     @Test
@@ -37,13 +37,13 @@ public class FileUtilTest {
     public void t2() {
         String filePath = "temp/test.txt";
 
-        FileUtil.file.set(filePath, "내용");
+        Util.file.set(filePath, "내용");
 
         assertThat(
-                FileUtil.file.get(filePath, "")
+                Util.file.get(filePath, "")
         ).isEqualTo("내용");
 
-        FileUtil.file.delete(filePath);
+        Util.file.delete(filePath);
     }
 
     @Test
@@ -51,11 +51,11 @@ public class FileUtilTest {
     public void t3() {
         String filePath = "temp/test.txt";
 
-        FileUtil.file.touch(filePath);
-        FileUtil.file.delete(filePath);
+        Util.file.touch(filePath);
+        Util.file.delete(filePath);
 
         assertThat(
-                FileUtil.file.notExists(filePath)
+                Util.file.notExists(filePath)
         ).isTrue();
     }
 
@@ -64,12 +64,12 @@ public class FileUtilTest {
     public void t4() {
         String filePath = "temp/temp/test.txt";
 
-        FileUtil.file.touch(filePath);
+        Util.file.touch(filePath);
 
         assertThat(
-                FileUtil.file.exists(filePath)
+                Util.file.exists(filePath)
         ).isTrue();
 
-        FileUtil.file.delete(filePath);
+        Util.file.delete(filePath);
     }
 }

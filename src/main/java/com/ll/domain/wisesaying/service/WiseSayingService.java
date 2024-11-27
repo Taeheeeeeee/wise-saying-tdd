@@ -5,6 +5,7 @@ import com.ll.domain.wisesaying.repository.WiseSayingRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class WiseSayingService {
     private final WiseSayingRepository wiseSayingRepository;
@@ -28,5 +29,15 @@ public class WiseSayingService {
 
     public boolean deleteById(int id) {
         return wiseSayingRepository.deleteById(id);
+    }
+
+    public Optional<WiseSaying> findById(int id) {
+        return wiseSayingRepository.findById(id);
+    }
+
+    public void modify(WiseSaying wiseSaying, String content, String author) {
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(author);
+        wiseSayingRepository.save(wiseSaying);
     }
 }

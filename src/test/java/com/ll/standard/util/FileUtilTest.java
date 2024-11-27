@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UtilTest {
+public class FileUtilTest {
     @BeforeAll
     public static void beforeAll() {
-        Util.file.mkdir("temp");
+        FileUtil.file.mkdir("temp");
     }
 
     @AfterAll
     public static void afterAll() {
-        Util.file.rmdir("temp");
+        FileUtil.file.rmdir("temp");
     }
 
     @Test
@@ -23,13 +23,13 @@ public class UtilTest {
     public void t1() {
         String filePath = "temp/test.txt";
 
-        Util.file.touch(filePath);
+        FileUtil.file.touch(filePath);
 
         assertThat(
-                Util.file.exists(filePath)
+                FileUtil.file.exists(filePath)
         ).isTrue();
 
-        Util.file.delete(filePath);
+        FileUtil.file.delete(filePath);
     }
 
     @Test
@@ -37,13 +37,13 @@ public class UtilTest {
     public void t2() {
         String filePath = "temp/test.txt";
 
-        Util.file.set(filePath, "내용");
+        FileUtil.file.set(filePath, "내용");
 
         assertThat(
-                Util.file.get(filePath, "")
+                FileUtil.file.get(filePath, "")
         ).isEqualTo("내용");
 
-        Util.file.delete(filePath);
+        FileUtil.file.delete(filePath);
     }
 
     @Test
@@ -51,11 +51,11 @@ public class UtilTest {
     public void t3() {
         String filePath = "temp/test.txt";
 
-        Util.file.touch(filePath);
-        Util.file.delete(filePath);
+        FileUtil.file.touch(filePath);
+        FileUtil.file.delete(filePath);
 
         assertThat(
-                Util.file.notExists(filePath)
+                FileUtil.file.notExists(filePath)
         ).isTrue();
     }
 
@@ -64,12 +64,12 @@ public class UtilTest {
     public void t4() {
         String filePath = "temp/temp/test.txt";
 
-        Util.file.touch(filePath);
+        FileUtil.file.touch(filePath);
 
         assertThat(
-                Util.file.exists(filePath)
+                FileUtil.file.exists(filePath)
         ).isTrue();
 
-        Util.file.delete(filePath);
+        FileUtil.file.delete(filePath);
     }
 }

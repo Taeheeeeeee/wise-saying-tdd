@@ -18,8 +18,8 @@ public class WiseSayingControllerTest {
                 """);
 
         assertThat(output)
-                .contains("명언: ")
-                .contains("작가: ");
+                .contains("명언 : ")
+                .contains("작가 : ");
     }
 
     @Test
@@ -32,7 +32,7 @@ public class WiseSayingControllerTest {
                 """);
 
         assertThat(output)
-                .contains("1번 명령이 등록되었습니다.");
+                .contains("1번 명언이 등록되었습니다.");
     }
 
     @Test
@@ -48,8 +48,8 @@ public class WiseSayingControllerTest {
                 """);
 
         assertThat(output)
-                .contains("1번 명령이 등록되었습니다.")
-                .contains("2번 명령이 등록되었습니다.");
+                .contains("1번 명언이 등록되었습니다.")
+                .contains("2번 명언이 등록되었습니다.");
     }
 
     @Test

@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        App app = new App(new Scanner(System.in));
+        app.run();
 //        lab1(); // 사람이 직접 입력
 //        lab2(); // 자동으로 입력
 //        lab3(); // 바로 출력
-        lab4(); // 모아서 출력
+//        lab4(); // 모아서 출력
     }
 
     private static void lab1() {

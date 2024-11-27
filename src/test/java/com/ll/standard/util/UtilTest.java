@@ -9,7 +9,7 @@ public class UtilTest {
     @Test
     @DisplayName("파일을 생성할 수 있다.")
     void t1(){
-        String filePath = "text.txt";
+        String filePath = "temp/text.txt";
 
         Util.file.touch(filePath);
         assertThat(
@@ -20,7 +20,7 @@ public class UtilTest {
     @Test
     @DisplayName("파일의 내용을 수정할 수 있고 읽을 수 있다.")
     void t2(){
-        String filePath = "text.txt";
+        String filePath = "temp/text.txt";
 
         Util.file.set(filePath, "내용");
         assertThat(
@@ -32,7 +32,7 @@ public class UtilTest {
     @Test
     @DisplayName("파일을 삭제할 수 있다.")
     void t3(){
-        String filePath = "text.txt";
+        String filePath = "temp/text.txt";
 
         Util.file.touch(filePath);
         Util.file.delete(filePath);

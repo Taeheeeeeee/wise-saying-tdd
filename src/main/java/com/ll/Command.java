@@ -11,18 +11,22 @@ public class Command {
     public Command(String cmd) {
         this.params = new HashMap();
         String[] cmtBits = cmd.trim().split("\\?", 2);
-        this.actionName = cmtBits[0];
+        this.actionName = cmtBits[0].trim();
 
         if (cmtBits.length == 1) return;
 
-        String queryString = cmtBits.length == 1 ? "" : cmtBits[1].trim();
+        String queryString = cmtBits[1].trim();
+
+        if (queryString.isEmpty()) return;
 
         String[] params = queryString.split("&");
+
         for (String param : params) {
             String[] paramBits = param.split("=", 2);
             this.params.put(paramBits[0], paramBits[1]);
         }
     }
+
     public String getActionName() {
         return actionName;
     }
@@ -30,6 +34,7 @@ public class Command {
     public String getParam(String key) {
         return params.get(key);
     }
+
     public String getParam(String key, String defaultValue) {
         return params.getOrDefault(key, defaultValue); // key에 해당하는 값이 없으면 defaultValue
     }

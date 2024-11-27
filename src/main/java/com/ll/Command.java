@@ -9,11 +9,14 @@ public class Command {
     private final Map<String, String> params;
 
     public Command(String cmd) {
-        String[] cmtBits = cmd.trim().split("\\?");
-        this.actionName = cmtBits[0];
         this.params = new HashMap();
+        String[] cmtBits = cmd.trim().split("\\?", 2);
+        this.actionName = cmtBits[0];
 
-        String queryString = cmtBits[1];
+        if (cmtBits.length == 1) return;
+
+        String queryString = cmtBits.length == 1 ? "" : cmtBits[1].trim();
+
         String[] params = queryString.split("&");
         for (String param : params) {
             String[] paramBits = param.split("=", 2);
